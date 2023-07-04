@@ -12,9 +12,14 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+buildCache {
+    local {
+        isEnabled = true
+        directory = File(rootDir, "build-cache")
+        removeUnusedEntriesAfterDays = 30
+    }
+}
+
 rootProject.name = "StateMachine"
-include ':app'
-include ':storage'
-include ':network'
-include ':domain'
-include ':state-manager'
+include(":app", ":storage", ":network", ":domain", ":state-manager")
