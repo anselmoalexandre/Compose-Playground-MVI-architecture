@@ -5,9 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "mz.co.bilheteira.network"
+    namespace = "mz.co.bilheteira.storage"
 }
 
 dependencies {
-    testImplementation(libs.bundles.retrofit)
+
+    implementation(libs.bundles.room)
 }
