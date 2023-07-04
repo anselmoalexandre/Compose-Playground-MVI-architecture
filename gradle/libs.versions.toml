@@ -3,7 +3,7 @@ compose = "1.3.3"
 compose-material3 = "1.0.1"
 hilt = "2.46.1"
 room = "2.5.0"
-android-gradle-plugin = "7.4.2"
+android-gradle-plugin = "8.0.2"
 kotlin = "1.8.10"
 ktlint = "10.2.0"
 moshi = "1.14.0"
@@ -21,7 +21,6 @@ compose-material-icons = { module = "androidx.compose.material:material-icons-ex
 compose-viewbinding = { module = "androidx.compose.ui:ui-viewbinding", version.ref = "compose" }
 compose-livedata = "androidx.compose.runtime:runtime-livedata:1.3.3"
 compose-accompanist = "com.google.accompanist:accompanist-drawablepainter:0.25.1"
-compose-ui-test = "androidx.compose.ui:ui-test-junit4:1.3.3"
 compose-tooling = "androidx.compose.ui:ui-tooling:1.3.3"
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
 compose-hilt-navigation = "androidx.hilt:hilt-navigation-compose:1.0.0"
@@ -75,17 +74,19 @@ kotlin-coroutines-test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2"
 junit-androidx = "androidx.test.ext:junit:1.1.3"
 espresso = "androidx.test.espresso:espresso-core:3.4.0"
 
+android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
+
 [bundles]
 compose = ["compose-ui", "compose-material3", "compose-preview", "compose-material-icons", "compose-viewbinding", "compose-livedata", "compose-accompanist"]
-google = ["appcompat", "constraintlayout", "vectordrawable", "navigation-fragment", "navigation-ui", "lifecycle-extensions", "material", "recyclerview", "lifecycle-runtime", "activity-compose", "core-ktx", "lifecycle-viewmodel", "kotlin-stdlib", "legacy-support"]
+google = ["lifecycle-extensions", "material", "lifecycle-runtime", "activity-compose", "core-ktx", "lifecycle-viewmodel", "kotlin-stdlib", "legacy-support"]
 room = ["room", "room-runtime", "room-compiler"]
 coil = ["coil", "coil-compose"]
 moshi = ["moshi", "moshi-adapters"]
 retrofit = ["retrofit", "retrofit-moshi-converter", "logging-interceptor"]
-test = ["junit", "robolectric", "test-core-ktx", "fixture", "truth", "mockk", "espresso", "compose-test"]
+test = ["junit", "robolectric", "test-core-ktx", "truth", "mockk", "espresso"]
 
 [plugins]
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
-android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
+android-library = { id = "com.android.library", version = "8.0.2" }
+android-application = { id = "com.android.application", version = "8.0.2" }
