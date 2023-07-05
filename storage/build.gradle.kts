@@ -8,6 +8,11 @@ plugins {
 
 android {
     namespace = "mz.co.bilheteira.storage"
+
+    defaultConfig {
+        minSdk = libs.versions.minSdk.get().toInt()
+        compileSdk = libs.versions.compileSdk.get().toInt()
+    }
 }
 
 dependencies {

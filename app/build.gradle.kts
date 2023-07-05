@@ -12,8 +12,10 @@ android {
 
     defaultConfig {
         applicationId = "mz.co.bilheteira.statemachine"
+
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.minSdk.get().toInt()
+
         versionCode  = 1
         versionName = "1.0"
 
