@@ -71,5 +71,5 @@ dependencies {
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
 
-    testImplementation(libs.junit)
+    testImplementation(libs.bundles.test)
 }

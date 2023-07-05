@@ -86,7 +86,7 @@ room = ["room", "room-runtime", "room-compiler"]
 coil = ["coil", "coil-compose"]
 moshi = ["moshi", "moshi-adapters"]
 retrofit = ["retrofit", "retrofit-moshi-converter", "logging-interceptor"]
-test = ["junit", "robolectric", "test-core-ktx", "truth", "mockk", "espresso"]
+test = ["junit", "kotlin-coroutines-test", "robolectric", "test-core-ktx", "truth", "mockk", "espresso"]
 
 [plugins]
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
