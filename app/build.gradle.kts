@@ -16,11 +16,11 @@ android {
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.minSdk.get().toInt()
 
-        versionCode  = 1
+        versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables.useSupportLibrary =  true
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -35,8 +35,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility= JavaVersion.VERSION_17
-        targetCompatibility= JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -45,7 +45,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion ="1.4.8"
+        kotlinCompilerExtensionVersion = "1.4.8"
     }
     packaging {
         resources {
@@ -55,7 +55,8 @@ android {
 }
 
 dependencies {
-    implementation(project(path=":domain"))
+    implementation(project(path = ":domain"))
+    implementation(project(path = ":state-manager"))
 
     implementation(libs.core.ktx)
 
