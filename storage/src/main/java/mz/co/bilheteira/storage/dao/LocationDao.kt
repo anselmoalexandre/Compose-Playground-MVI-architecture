@@ -13,6 +13,6 @@ interface LocationDao {
     @Query("SELECT * FROM location")
     fun getLocations(): Flow<List<LocationEntity>>
 
-    @Insert(LocationEntity::class, onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertLocation(locationEntity: LocationEntity)
 }
