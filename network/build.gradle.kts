@@ -13,6 +13,14 @@ android {
         minSdk = libs.versions.minSdk.get().toInt()
         compileSdk = libs.versions.compileSdk.get().toInt()
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
@@ -22,6 +30,10 @@ dependencies {
     implementation(libs.truth)
 
     implementation(libs.bundles.retrofit)
+
+    implementation(libs.moshi)
+    implementation(libs.moshi.adapters)
+    kapt(libs.moshi.codegen)
 
     testImplementation(libs.bundles.test)
 }
