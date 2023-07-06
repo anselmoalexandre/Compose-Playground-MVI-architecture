@@ -14,7 +14,6 @@ import mz.co.bilheteira.network.data.api.LocationApiService
 import mz.co.bilheteira.storage.dao.LocationDao
 import org.junit.Test
 
-import org.junit.Assert.*
 import org.junit.Before
 
 @SmallTest

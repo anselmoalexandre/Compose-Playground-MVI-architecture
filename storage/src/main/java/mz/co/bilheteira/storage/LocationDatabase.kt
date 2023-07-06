@@ -9,7 +9,6 @@ import mz.co.bilheteira.storage.entity.LocationEntity
 abstract class LocationDatabase : RoomDatabase() {
 
     abstract fun getLocationDao(): LocationDao
-
     companion object {
         const val DB_NAME = "app-database.db"
     }

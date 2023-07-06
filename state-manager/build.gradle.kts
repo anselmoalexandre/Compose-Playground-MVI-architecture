@@ -15,5 +15,6 @@ android {
 
 dependencies {
     implementation(libs.core.ktx)
+    implementation(libs.bundles.kotlin.coroutines)
     testImplementation(libs.bundles.test)
 }
