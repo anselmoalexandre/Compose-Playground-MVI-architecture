@@ -15,7 +15,8 @@ import kotlinx.coroutines.flow.StateFlow
  */
 open class BaseStore<S : State, A : Action>(
     initialState: S,
-    private val reducer: Reducer<S, A>
+    private val reducer: Reducer<S, A>,
+    private val middlewares: List<Middleware<S, A>> = emptyList(),
 ) : Store<S, A> {
 
     private val _stateFlow: MutableStateFlow<S> = MutableStateFlow(initialState)
@@ -25,6 +26,13 @@ open class BaseStore<S : State, A : Action>(
         get() = _stateFlow.value
 
     override suspend fun dispatch(action: A) {
+        middlewares.forEach { middleware ->
+            middleware.process(
+                action = action,
+                currentState = currentState,
+                store = this@BaseStore,
+            )
+        }
 
         val newState = reducer.reduce(currentState = currentState, action = action)
         _stateFlow.value = newState
