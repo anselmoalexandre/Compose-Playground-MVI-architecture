@@ -29,7 +29,7 @@ dependencies {
 
     implementation(libs.truth)
 
-    implementation(libs.bundles.retrofit)
+    api(libs.bundles.retrofit)
 
     implementation(libs.moshi)
     implementation(libs.moshi.adapters)
