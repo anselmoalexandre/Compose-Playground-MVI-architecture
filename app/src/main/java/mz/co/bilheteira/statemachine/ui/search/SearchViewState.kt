@@ -10,11 +10,11 @@ import mz.co.bilheteira.statemanager.State
 sealed class SearchViewState : State {
     object Loading : SearchViewState()
     object Success : SearchViewState()
-    data class Error(
+    data class UIError(
         val message: String
     ) : SearchViewState()
 
-    data class LocationContent(
+    data class UILocation(
         val locations: Flow<List<LocationModel>>
     ) : SearchViewState()
 }

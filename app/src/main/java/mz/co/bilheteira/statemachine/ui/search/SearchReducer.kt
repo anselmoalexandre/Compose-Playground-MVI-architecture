@@ -1,8 +1,8 @@
 package mz.co.bilheteira.statemachine.ui.search
 
+import kotlinx.coroutines.flow.Flow
 import mz.co.bilheteira.domain.data.LocationModel
 import mz.co.bilheteira.statemanager.Reducer
-import java.util.concurrent.Flow
 
 /**
  * This is a concrete implementation of a [Reducer] that processes [SearchAction]s and
@@ -21,9 +21,9 @@ internal class SearchReducer : Reducer<SearchViewState, SearchAction> {
 
     private fun newStateWithError(
         message: String
-    ): SearchViewState = SearchViewState.Error(message = message)
+    ): SearchViewState = SearchViewState.UIError(message = message)
 
     private fun newStateWithLocationContent(
-        locations: kotlinx.coroutines.flow.Flow<List<LocationModel>>
-    ): SearchViewState = SearchViewState.LocationContent(locations)
+        locations: Flow<List<LocationModel>>
+    ): SearchViewState = SearchViewState.UILocation(locations)
 }
