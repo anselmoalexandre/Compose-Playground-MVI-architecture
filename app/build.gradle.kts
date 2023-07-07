@@ -54,6 +54,12 @@ android {
     }
 }
 
+configurations {
+    implementation.configure {
+        this.exclude(group = "org.jetbrains", module = "annotations")
+    }
+}
+
 dependencies {
     implementation(project(path = ":domain"))
     implementation(project(path = ":state-manager"))
