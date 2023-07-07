@@ -2,7 +2,6 @@ package mz.co.bilheteira.statemachine.di
 
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import mz.co.bilheteira.statemachine.ui.search.SearchAction
