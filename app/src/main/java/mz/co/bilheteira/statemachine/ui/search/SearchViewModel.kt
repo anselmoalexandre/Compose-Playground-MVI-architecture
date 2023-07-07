@@ -11,8 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 internal class SearchViewModel @Inject constructor(
-    private val repository: Repository,
-    private val searchStore: Store<SearchViewState, SearchAction> = SearchStore(repository),
+    private val searchStore: SearchStore,
 ) : ViewModel() {
     val uiState: StateFlow<SearchViewState> = searchStore.state
 
