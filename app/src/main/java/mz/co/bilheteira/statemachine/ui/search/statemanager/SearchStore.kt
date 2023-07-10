@@ -1,4 +1,4 @@
-package mz.co.bilheteira.statemachine.ui.search
+package mz.co.bilheteira.statemachine.ui.search.statemanager
 
 import mz.co.bilheteira.domain.repository.Repository
 import mz.co.bilheteira.statemanager.BaseStore
@@ -9,10 +9,10 @@ import javax.inject.Inject
  */
 internal class SearchStore @Inject constructor(
     repository: Repository
-): BaseStore<SearchViewState, SearchAction>(
-    initialState = SearchViewState.Loading,
+) : BaseStore<SearchViewState, SearchAction>(
+    initialState = SearchViewState.Loading(isLoading = false),
     reducer = SearchReducer(),
     middlewares = listOf(
-        SearchMiddleware(repository = repository)
+        SearchMiddleware(repository = repository),
     )
 )

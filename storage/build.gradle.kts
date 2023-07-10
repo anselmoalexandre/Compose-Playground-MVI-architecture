@@ -25,6 +25,7 @@ android {
 
 dependencies {
     implementation(libs.bundles.room)
+    kapt(libs.room.compiler)
 
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)

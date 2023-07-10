@@ -1,5 +1,6 @@
 package mz.co.bilheteira.statemanager
 
+import android.util.Log
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -30,7 +31,7 @@ open class BaseStore<S : State, A : Action>(
             middleware.process(
                 action = action,
                 currentState = currentState,
-                store = this@BaseStore,
+                store = this,
             )
         }
 
