@@ -55,9 +55,9 @@ android {
 }
 
 configurations {
-    implementation.configure {
-        this.exclude(group = "org.jetbrains", module = "annotations")
-    }
+//    implementation.configure {
+//        this.exclude(group = "org.jetbrains", module = "annotations")
+//    }
 }
 
 dependencies {
@@ -69,12 +69,7 @@ dependencies {
     implementation(libs.lifecycle.runtime)
     implementation(libs.activity.compose)
 
-    implementation(platform("androidx.compose:compose-bom:2022.10.00"))
-    implementation(libs.compose.ui)
-    implementation(libs.compose.preview)
-    implementation(libs.compose.material3)
-    implementation(libs.compose.navigation)
-    implementation(libs.compose.hilt.navigation)
+    implementation(libs.bundles.compose)
 
     implementation(libs.timber)
     implementation(libs.coil.compose)

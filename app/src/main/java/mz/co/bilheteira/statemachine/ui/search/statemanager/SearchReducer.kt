@@ -1,6 +1,5 @@
-package mz.co.bilheteira.statemachine.ui.search
+package mz.co.bilheteira.statemachine.ui.search.statemanager
 
-import kotlinx.coroutines.flow.Flow
 import mz.co.bilheteira.domain.data.LocationModel
 import mz.co.bilheteira.statemanager.Reducer
 
@@ -14,16 +13,18 @@ internal class SearchReducer : Reducer<SearchViewState, SearchAction> {
             SearchAction.FetchingLocations -> newStateWhileFetchingLocations()
             is SearchAction.Error -> newStateWithError(message = action.message)
             is SearchAction.LocationContent -> newStateWithLocationContent(locations = action.locations)
+            else -> currentState
         }
     }
 
-    private fun newStateWhileFetchingLocations(): SearchViewState = SearchViewState.Loading
+    private fun newStateWhileFetchingLocations(): SearchViewState =
+        SearchViewState.Loading(isLoading = true)
 
     private fun newStateWithError(
         message: String
-    ): SearchViewState = SearchViewState.UIError(message = message)
+    ): SearchViewState = SearchViewState.Error(message = message)
 
     private fun newStateWithLocationContent(
-        locations: Flow<List<LocationModel>>
-    ): SearchViewState = SearchViewState.UILocation(locations)
+        locations: List<LocationModel>
+    ): SearchViewState = SearchViewState.Locations(locations)
 }

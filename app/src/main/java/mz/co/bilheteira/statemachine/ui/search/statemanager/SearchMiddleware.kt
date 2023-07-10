@@ -1,4 +1,4 @@
-package mz.co.bilheteira.statemachine.ui.search
+package mz.co.bilheteira.statemachine.ui.search.statemanager
 
 import mz.co.bilheteira.domain.repository.Repository
 import mz.co.bilheteira.statemanager.Middleware
@@ -17,15 +17,17 @@ internal class SearchMiddleware @Inject constructor(
         currentState: SearchViewState,
         store: Store<SearchViewState, SearchAction>
     ) {
-        when(action){
-            SearchAction.FetchingLocations -> fetchLocations(store)
+        when (action) {
+            SearchAction.FetchLocations -> fetchLocations(store)
+            is SearchAction.Error -> store.dispatch(SearchAction.Error(message = action.message))
             else -> store.dispatch(action)
         }
     }
 
-    private suspend fun fetchLocations(searchStore: Store<SearchViewState, SearchAction>){
+    private suspend fun fetchLocations(searchStore: Store<SearchViewState, SearchAction>) {
         searchStore.dispatch(SearchAction.FetchingLocations)
-        val locations = repository.getLocations()
-        searchStore.dispatch(SearchAction.LocationContent(locations))
+        repository.getLocations().collect { locations ->
+            searchStore.dispatch(SearchAction.LocationContent(locations = locations))
+        }
     }
 }
