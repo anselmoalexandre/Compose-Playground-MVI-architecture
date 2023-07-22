@@ -10,7 +10,9 @@ internal sealed class SearchAction : Action {
     object FetchLocations : SearchAction()
     object FetchingLocations : SearchAction()
 
-    data class LocationContent(
+    object FetchingLocationsDone : SearchAction()
+
+    data class LocationsLoaded(
         val locations: List<LocationModel>
     ) : SearchAction()
 

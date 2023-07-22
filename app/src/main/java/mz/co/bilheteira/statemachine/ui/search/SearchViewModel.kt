@@ -22,7 +22,8 @@ internal class SearchViewModel @Inject constructor(
 
     private fun fetchLocations() {
         viewModelScope.launch {
-            searchStore.dispatch(SearchAction.FetchLocations)
+            val newAction = SearchAction.FetchLocations
+            searchStore.dispatch(action = newAction)
         }
     }
 }

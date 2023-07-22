@@ -19,7 +19,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -48,8 +47,13 @@ internal fun SearchContent(
     viewState: SearchViewState,
 ) {
     when (viewState) {
-        is SearchViewState.Loading -> CircularProgressBar(
-            isLoading = viewState.isLoading,
+        SearchViewState.Loading -> CircularProgressBar(
+            isLoading = true,
+            modifier = modifier,
+        )
+
+        SearchViewState.Success -> CircularProgressBar(
+            isLoading = false,
             modifier = modifier,
         )
 
@@ -63,6 +67,8 @@ internal fun SearchContent(
             modifier = modifier,
             message = viewState.message,
         )
+
+        else -> {}
     }
 }
 

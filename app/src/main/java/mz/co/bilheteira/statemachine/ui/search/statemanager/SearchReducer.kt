@@ -11,14 +11,16 @@ internal class SearchReducer : Reducer<SearchViewState, SearchAction> {
     override fun reduce(currentState: SearchViewState, action: SearchAction): SearchViewState {
         return when (action) {
             SearchAction.FetchingLocations -> newStateWhileFetchingLocations()
+            SearchAction.FetchingLocationsDone -> newStateAfterFetchingLocations()
             is SearchAction.Error -> newStateWithError(message = action.message)
-            is SearchAction.LocationContent -> newStateWithLocationContent(locations = action.locations)
+            is SearchAction.LocationsLoaded -> newStateWithLocationContent(locations = action.locations)
             else -> currentState
         }
     }
 
-    private fun newStateWhileFetchingLocations(): SearchViewState =
-        SearchViewState.Loading(isLoading = true)
+    private fun newStateWhileFetchingLocations(): SearchViewState = SearchViewState.Loading
+
+    private fun newStateAfterFetchingLocations(): SearchViewState = SearchViewState.Success
 
     private fun newStateWithError(
         message: String
