@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchAction
-import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchMiddleware
+import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchNetworkingMiddleware
 import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchViewState
 import mz.co.bilheteira.statemanager.Middleware
 
@@ -15,6 +15,6 @@ internal abstract class MiddlewareModule {
 
     @Binds
     abstract fun bindsMiddleware(
-        searchMiddleware: SearchMiddleware,
+        searchNetworkingMiddleware: SearchNetworkingMiddleware,
     ): Middleware<SearchViewState, SearchAction>
 }

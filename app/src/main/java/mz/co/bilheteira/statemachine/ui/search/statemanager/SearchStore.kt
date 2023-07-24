@@ -10,9 +10,9 @@ import javax.inject.Inject
 internal class SearchStore @Inject constructor(
     repository: Repository
 ) : BaseStore<SearchViewState, SearchAction>(
-    initialState = SearchViewState.Loading(isLoading = false),
+    initialState = SearchViewState.Initial,
     reducer = SearchReducer(),
     middlewares = listOf(
-        SearchMiddleware(repository = repository),
+        SearchNetworkingMiddleware(repository = repository),
     )
 )
