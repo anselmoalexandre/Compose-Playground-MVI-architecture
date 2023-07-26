@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import mz.co.bilheteira.storage.dao.LocationDao
 import mz.co.bilheteira.storage.entity.LocationEntity
 
-@Database(entities = [LocationEntity::class], version = 1)
+@Database(entities = [LocationEntity::class], version = 1, exportSchema = false)
 abstract class LocationDatabase : RoomDatabase() {
 
     abstract fun getLocationDao(): LocationDao

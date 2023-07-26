@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
     kotlin("kapt")
 }
 
@@ -31,9 +32,8 @@ dependencies {
 
     api(libs.bundles.retrofit)
 
-    implementation(libs.moshi)
-    implementation(libs.moshi.adapters)
-    kapt(libs.moshi.codegen)
+    implementation(libs.bundles.moshi)
+    ksp(libs.moshi.codegen)
 
     testImplementation(libs.bundles.test)
 }
