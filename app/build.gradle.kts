@@ -66,13 +66,14 @@ dependencies {
 
     implementation(libs.core.ktx)
 
-    implementation(libs.lifecycle.runtime)
+    implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.activity.compose)
 
     implementation(libs.bundles.compose)
 
     implementation(libs.timber)
-    implementation(libs.coil.compose)
+
+    implementation(libs.bundles.coil)
 
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
