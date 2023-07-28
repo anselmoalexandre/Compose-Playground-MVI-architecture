@@ -20,4 +20,8 @@ sealed class SearchViewState : State {
     data class Locations(
         val locations: List<LocationModel>
     ) : SearchViewState()
+
+    data class LocationDetails(
+        val details: LocationModel
+    ) : SearchViewState()
 }
