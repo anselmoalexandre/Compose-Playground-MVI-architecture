@@ -26,4 +26,11 @@ internal class SearchViewModel @Inject constructor(
             searchStore.dispatch(action = newAction)
         }
     }
+
+    fun fetchLocationDetails(locationId: Int) {
+        viewModelScope.launch {
+            val newAction = SearchAction.FetchLocationDetails(locationId = locationId)
+            searchStore.dispatch(action = newAction)
+        }
+    }
 }
