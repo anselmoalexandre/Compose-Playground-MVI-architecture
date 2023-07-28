@@ -18,6 +18,7 @@ room = "2.5.2"
 moshi = "1.14.0"
 retofit = "2.9.0"
 logging-interceptor = "4.10.0"
+ksp = "1.9.0-1.0.12"
 
 [libraries]
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
@@ -101,3 +102,4 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version = "8.0.2" }
 android-application = { id = "com.android.application", version = "8.0.2" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
