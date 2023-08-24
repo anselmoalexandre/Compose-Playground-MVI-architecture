@@ -12,3 +12,7 @@ data class LocationResponse(
     @Json(name = "Pais")
     val country: String
 )
+
+data class NetworkResponse<T>(
+    val responseObject: T
+)
