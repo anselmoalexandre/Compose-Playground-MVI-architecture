@@ -2,12 +2,7 @@ package mz.co.bilheteira.network.api
 
 import mz.co.bilheteira.network.data.LocationResponse
 import mz.co.bilheteira.network.data.api.LocationApiService
-import okhttp3.MediaType
-import okhttp3.ResponseBody
 import okhttp3.ResponseBody.Companion.toResponseBody
-import org.junit.Test
-
-import org.junit.Assert.*
 import retrofit2.Response
 
 class FakeLocationApiService : LocationApiService {

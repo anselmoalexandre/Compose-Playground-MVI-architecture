@@ -22,11 +22,8 @@ android {
 }
 
 dependencies {
-    implementation(libs.core.ktx)
-
-    implementation(libs.bundles.kotlin.coroutines)
-
     implementation(libs.timber)
-    
+    implementation(libs.core.ktx)
     testImplementation(libs.bundles.test)
+    implementation(libs.bundles.kotlin.coroutines)
 }
