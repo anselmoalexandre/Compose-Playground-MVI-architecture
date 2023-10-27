@@ -47,12 +47,12 @@ internal fun SearchContent(
     viewState: SearchViewState,
 ) {
     when (viewState) {
-        SearchViewState.Loading -> CircularProgressBar(
+        is SearchViewState.Loading -> CircularProgressBar(
             isLoading = true,
             modifier = modifier,
         )
 
-        SearchViewState.Success -> CircularProgressBar(
+        is SearchViewState.Success -> CircularProgressBar(
             isLoading = false,
             modifier = modifier,
         )

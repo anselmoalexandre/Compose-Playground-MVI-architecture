@@ -7,21 +7,10 @@ import mz.co.bilheteira.statemanager.State
  * Configuration of different UI States of the Search screen
  */
 sealed class SearchViewState : State {
-    object Initial : SearchViewState()
-
-    object Loading : SearchViewState()
-
-    object Success : SearchViewState()
-
-    data class Error(
-        val message: String
-    ) : SearchViewState()
-
-    data class Locations(
-        val locations: List<LocationModel>
-    ) : SearchViewState()
-
-    data class LocationDetails(
-        val details: LocationModel
-    ) : SearchViewState()
+    data object Initial : SearchViewState()
+    data object Loading : SearchViewState()
+    data object Success : SearchViewState()
+    data class Error(val message: String) : SearchViewState()
+    data class Locations(val locations: List<LocationModel>) : SearchViewState()
+    data class LocationDetails(val details: LocationModel) : SearchViewState()
 }
