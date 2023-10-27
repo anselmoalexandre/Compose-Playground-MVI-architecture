@@ -19,7 +19,7 @@ internal class SearchNetworkingMiddleware @Inject constructor(
         store: Store<SearchViewState, SearchAction>
     ) {
         when (action) {
-            SearchAction.FetchLocations -> fetchRemoteStoredLocations(store)
+            is SearchAction.FetchLocations -> fetchRemoteStoredLocations(store)
             is SearchAction.FetchLocationDetails -> fetchLocationDetails(
                 locationId = action.locationId,
                 store = store,

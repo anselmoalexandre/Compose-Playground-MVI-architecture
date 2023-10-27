@@ -10,9 +10,9 @@ import mz.co.bilheteira.statemanager.Reducer
 internal class SearchReducer : Reducer<SearchViewState, SearchAction> {
     override fun reduce(currentState: SearchViewState, action: SearchAction): SearchViewState {
         return when (action) {
-            SearchAction.FetchingLocations -> newStateLoading()
-            SearchAction.FetchingLocationsDone -> newStateSuccess()
-            SearchAction.FetchingLocationDetailsDone -> newStateSuccess()
+            is SearchAction.FetchingLocations -> newStateLoading()
+            is SearchAction.FetchingLocationsDone -> newStateSuccess()
+            is SearchAction.FetchingLocationDetailsDone -> newStateSuccess()
             is SearchAction.FetchLocationDetails -> newStateLoading()
             is SearchAction.Error -> newStateWithError(message = action.message)
             is SearchAction.LocationsLoaded -> newStateWithLocationContent(locations = action.locations)
