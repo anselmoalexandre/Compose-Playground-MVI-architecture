@@ -5,28 +5,97 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Build
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.ProgressIndicatorDefaults
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import mz.co.bilheteira.domain.data.LocationModel
+import mz.co.bilheteira.statemachine.R
 import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchViewState
 
 @Composable
 internal fun SearchScreen(
+    modifier: Modifier = Modifier,
+    onLocationSelected: (LocationModel) -> Unit,
+) {
+    Scaffold(
+        modifier = modifier.fillMaxSize(),
+        topBar = {
+            Toolbar(modifier = modifier)
+        },
+        bottomBar = {},
+        floatingActionButton = {},
+    ) { contentPadding ->
+        SearchScreenContent(
+            modifier = Modifier.padding(contentPadding),
+            onLocationSelected = onLocationSelected
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+internal fun Toolbar(
+    modifier: Modifier,
+    title: String = "MVI Playground",
+) {
+    TopAppBar(
+        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            titleContentColor = MaterialTheme.colorScheme.onPrimary
+        ),
+        title = {
+            Text(
+                text = title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+        },
+        navigationIcon = {
+            Icon(
+                imageVector = Icons.Rounded.Build,
+                contentDescription = "Icon",
+                tint = MaterialTheme.colorScheme.onPrimary,
+                modifier = modifier.padding(start = 10.dp)
+            )
+        }
+    )
+}
+
+@Composable
+internal fun SearchScreenContent(
     modifier: Modifier = Modifier,
     onLocationSelected: (LocationModel) -> Unit,
     viewModel: SearchViewModel = hiltViewModel(),
@@ -47,6 +116,7 @@ internal fun SearchContent(
     viewState: SearchViewState,
 ) {
     when (viewState) {
+        is SearchViewState.Initial -> {}
         is SearchViewState.Loading -> CircularProgressBar(
             isLoading = true,
             modifier = modifier,
@@ -107,17 +177,35 @@ internal fun LocationItem(
     onClick: (LocationModel) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
+    OutlinedCard(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        ),
         modifier = modifier
-            .clickable { onClick(location) }
-            .border(BorderStroke(1.dp, color = Color.Black))
+            .fillMaxWidth()
+            .clickable { onClick(location) },
+        border = BorderStroke(
+            width = 1.dp,
+            color = MaterialTheme.colorScheme.primary
+        ),
     ) {
-        Text(
-            text = location.name,
-            style = MaterialTheme.typography.headlineMedium,
-            modifier = Modifier.padding(vertical = 5.dp)
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                modifier = modifier
+                    .size(width = 32.dp, height = 32.dp),
+                tint = MaterialTheme.colorScheme.primary,
+                painter = painterResource(id = R.drawable.ic_launcher_background),
+                contentDescription = "Icon"
+            )
+
+            Text(
+                text = location.name,
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier.padding(vertical = 5.dp)
+            )
+        }
     }
 }
 
