@@ -78,19 +78,24 @@ internal fun SearchListScreen(
     onLocationSelected: (LocationModel) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    LazyColumn(
-        modifier = modifier
-            .padding(horizontal = 16.dp),
-        contentPadding = PaddingValues(8.dp)
-    ) {
-        locations.forEach { locationModel ->
-            val locationId = locationModel.id
-            item(key = locationId) {
-                LocationItem(location = locationModel,
-                    onClick = { selected ->
-                        onLocationSelected(selected)
-                    }
-                )
+    if (locations.isEmpty()) {
+        Text(text = "No locations found")
+    } else {
+
+        LazyColumn(
+            modifier = modifier
+                .padding(horizontal = 16.dp),
+            contentPadding = PaddingValues(8.dp)
+        ) {
+            locations.forEach { locationModel ->
+                val locationId = locationModel.id
+                item(key = locationId) {
+                    LocationItem(location = locationModel,
+                        onClick = { selected ->
+                            onLocationSelected(selected)
+                        }
+                    )
+                }
             }
         }
     }
