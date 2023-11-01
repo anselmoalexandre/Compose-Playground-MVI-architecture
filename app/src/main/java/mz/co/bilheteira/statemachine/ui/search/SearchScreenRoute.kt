@@ -3,6 +3,8 @@ package mz.co.bilheteira.statemachine.ui.search
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -15,6 +17,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Build
+import androidx.compose.material.icons.rounded.LocationOn
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -35,8 +38,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -71,7 +76,7 @@ internal fun Toolbar(
     modifier: Modifier,
     title: String = "MVI Playground",
 ) {
-    TopAppBar(
+    CenterAlignedTopAppBar(
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary,
             titleContentColor = MaterialTheme.colorScheme.onPrimary
@@ -84,12 +89,12 @@ internal fun Toolbar(
             )
         },
         navigationIcon = {
-            Icon(
-                imageVector = Icons.Rounded.Build,
-                contentDescription = "Icon",
-                tint = MaterialTheme.colorScheme.onPrimary,
-                modifier = modifier.padding(start = 10.dp)
-            )
+//            Icon(
+//                imageVector = Icons.Rounded.Build,
+//                contentDescription = "Icon",
+//                tint = MaterialTheme.colorScheme.onPrimary,
+//                modifier = modifier.padding(start = 10.dp)
+//            )
         }
     )
 }
@@ -148,24 +153,18 @@ internal fun SearchListScreen(
     onLocationSelected: (LocationModel) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    if (locations.isEmpty()) {
-        Text(text = "No locations found")
-    } else {
-
-        LazyColumn(
-            modifier = modifier
-                .padding(horizontal = 16.dp),
-            contentPadding = PaddingValues(8.dp)
-        ) {
-            locations.forEach { locationModel ->
-                val locationId = locationModel.id
-                item(key = locationId) {
-                    LocationItem(location = locationModel,
-                        onClick = { selected ->
-                            onLocationSelected(selected)
-                        }
-                    )
-                }
+    LazyColumn(
+        modifier = modifier,
+        contentPadding = PaddingValues(horizontal = 5.dp)
+    ) {
+        locations.forEach { locationModel ->
+            val locationId = locationModel.id
+            item(key = locationId) {
+                LocationItem(location = locationModel,
+                    onClick = { selected ->
+                        onLocationSelected(selected)
+                    }
+                )
             }
         }
     }
@@ -182,29 +181,43 @@ internal fun LocationItem(
             containerColor = MaterialTheme.colorScheme.surface
         ),
         modifier = modifier
+            .padding(top = 5.dp)
             .fillMaxWidth()
             .clickable { onClick(location) },
         border = BorderStroke(
             width = 1.dp,
             color = MaterialTheme.colorScheme.primary
         ),
+        shape = CardDefaults.outlinedShape
     ) {
         Row(
+            modifier = modifier
+                .padding(horizontal = 5.dp, vertical = 5.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
                 modifier = modifier
-                    .size(width = 32.dp, height = 32.dp),
+                    .size(width = 32.dp, height = 32.dp)
+                    .padding(start = 5.dp),
                 tint = MaterialTheme.colorScheme.primary,
-                painter = painterResource(id = R.drawable.ic_launcher_background),
+                imageVector = Icons.Rounded.LocationOn,
                 contentDescription = "Icon"
             )
 
-            Text(
-                text = location.name,
-                style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(vertical = 5.dp)
-            )
+            Column(
+                modifier = modifier.padding(start = 5.dp)
+            ) {
+                Text(
+                    text = location.name,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontStyle = FontStyle.Normal
+                )
+                Text(
+                    text = location.country,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontStyle = FontStyle.Italic
+                )
+            }
         }
     }
 }
