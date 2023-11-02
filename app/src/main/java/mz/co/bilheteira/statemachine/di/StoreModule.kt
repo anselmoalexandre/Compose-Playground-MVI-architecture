@@ -15,6 +15,6 @@ internal abstract class StoreModule {
 
     @Binds
     abstract fun bindsStore(
-        searchStore: SearchStore,
+        searchStore: SearchStore
     ): Store<SearchViewState, SearchAction>
 }

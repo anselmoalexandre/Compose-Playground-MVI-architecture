@@ -15,8 +15,12 @@ internal class SearchReducer : Reducer<SearchViewState, SearchAction> {
             is SearchAction.FetchingLocationDetailsDone -> newStateSuccess()
             is SearchAction.FetchLocationDetails -> newStateLoading()
             is SearchAction.Error -> newStateWithError(message = action.message)
-            is SearchAction.LocationsLoaded -> newStateWithLocationContent(locations = action.locations)
-            is SearchAction.LocationDetails -> newStateWithLocationDetailsContent(details = action.details)
+            is SearchAction.LocationsLoaded -> newStateWithLocationContent(
+                locations = action.locations
+            )
+            is SearchAction.LocationDetails -> newStateWithLocationDetailsContent(
+                details = action.details
+            )
             else -> currentState
         }
     }

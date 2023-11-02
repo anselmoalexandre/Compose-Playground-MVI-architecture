@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.StateFlow
 open class BaseStore<S : State, A : Action>(
     initialState: S,
     private val reducer: Reducer<S, A>,
-    private val middlewares: List<Middleware<S, A>> = emptyList(),
+    private val middlewares: List<Middleware<S, A>> = emptyList()
 ) : Store<S, A> {
 
     private val _stateFlow: MutableStateFlow<S> = MutableStateFlow(initialState)
@@ -30,7 +30,7 @@ open class BaseStore<S : State, A : Action>(
             middleware.process(
                 action = action,
                 currentState = currentState,
-                store = this,
+                store = this
             )
         }
 

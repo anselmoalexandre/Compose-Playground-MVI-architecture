@@ -1,7 +1,8 @@
-@Suppress("DSL_SCOPE_VIOLATION") // Refer to issue #22797(https://github.com/gradle/gradle/issues/22797) for more info.
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ktlint)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
 }
@@ -33,4 +34,9 @@ dependencies {
     implementation(libs.truth)
 
     testImplementation(libs.bundles.test)
+}
+
+ktlint {
+    android.set(true)
+    outputColorName.set("RED")
 }

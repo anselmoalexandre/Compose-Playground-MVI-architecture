@@ -1,10 +1,10 @@
 package mz.co.bilheteira.statemachine.ui.search.statemanager
 
+import javax.inject.Inject
 import kotlinx.coroutines.flow.map
 import mz.co.bilheteira.domain.repository.Repository
 import mz.co.bilheteira.statemanager.Middleware
 import mz.co.bilheteira.statemanager.Store
-import javax.inject.Inject
 
 /**
  * This is a custom [Middleware] that processes any [SearchAction]s and triggers a
@@ -22,7 +22,7 @@ internal class SearchNetworkingMiddleware @Inject constructor(
             is SearchAction.FetchLocations -> fetchRemoteStoredLocations(store)
             is SearchAction.FetchLocationDetails -> fetchLocationDetails(
                 locationId = action.locationId,
-                store = store,
+                store = store
             )
 
             else -> {}
@@ -39,7 +39,7 @@ internal class SearchNetworkingMiddleware @Inject constructor(
 
     private suspend fun fetchLocationDetails(
         locationId: Int,
-        store: Store<SearchViewState, SearchAction>,
+        store: Store<SearchViewState, SearchAction>
     ) {
         store.dispatch(SearchAction.FetchingLocationDetails)
         repository.getLocations()

@@ -19,7 +19,7 @@ class FakeLocationApiService : LocationApiService {
 
     fun getEmptyLocations(): Response<List<LocationResponse>> = Response.success(emptyList())
 
-    fun getFailedLocations():Response<String> = Response.error(
+    fun getFailedLocations(): Response<String> = Response.error(
         500,
         "Can't retrieve locations".toResponseBody()
     )

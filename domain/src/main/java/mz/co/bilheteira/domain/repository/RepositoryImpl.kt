@@ -1,5 +1,6 @@
 package mz.co.bilheteira.domain.repository
 
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -10,11 +11,10 @@ import mz.co.bilheteira.domain.data.toLocationEntity
 import mz.co.bilheteira.domain.data.toLocationModel
 import mz.co.bilheteira.network.data.api.LocationApiService
 import mz.co.bilheteira.storage.dao.LocationDao
-import javax.inject.Inject
 
 internal class RepositoryImpl @Inject constructor(
     private val locationDao: LocationDao,
-    private val locationApiService: LocationApiService,
+    private val locationApiService: LocationApiService
 ) : Repository {
     override fun getLocations(): Flow<List<LocationModel>> = flow {
         locationDao.getLocations()
@@ -38,7 +38,9 @@ internal class RepositoryImpl @Inject constructor(
                                 locationDao.insertLocation(locationModel.toLocationEntity())
                             }
                         } ?: emit(emptyList())
-                    } else emit(emptyList())
+                    } else {
+                        emit(emptyList())
+                    }
                 }
             }
     }
