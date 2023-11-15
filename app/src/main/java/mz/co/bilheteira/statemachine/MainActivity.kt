@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             StateMachineTheme {
-                SearchScreen(onLocationSelected = {/* TODO*/ })
+                SearchScreen(onLocationSelected = { /* TODO*/ })
             }
         }
     }

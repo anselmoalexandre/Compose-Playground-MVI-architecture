@@ -15,6 +15,6 @@ internal abstract class MiddlewareModule {
 
     @Binds
     abstract fun bindsMiddleware(
-        searchNetworkingMiddleware: SearchNetworkingMiddleware,
+        searchNetworkingMiddleware: SearchNetworkingMiddleware
     ): Middleware<SearchViewState, SearchAction>
 }

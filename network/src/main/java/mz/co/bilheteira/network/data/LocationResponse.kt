@@ -12,5 +12,5 @@ data class LocationResponse(
     @Json(name = "Provincia")
     val province: String,
     @Json(name = "Pais")
-    val country: String,
+    val country: String
 )

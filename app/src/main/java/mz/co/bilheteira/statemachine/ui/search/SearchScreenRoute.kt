@@ -4,21 +4,16 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Build
 import androidx.compose.material.icons.rounded.LocationOn
-import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
@@ -30,30 +25,23 @@ import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import mz.co.bilheteira.domain.data.LocationModel
-import mz.co.bilheteira.statemachine.R
 import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchViewState
 
 @Composable
 internal fun SearchScreen(
     modifier: Modifier = Modifier,
-    onLocationSelected: (LocationModel) -> Unit,
+    onLocationSelected: (LocationModel) -> Unit
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -61,7 +49,7 @@ internal fun SearchScreen(
             Toolbar(modifier = modifier)
         },
         bottomBar = {},
-        floatingActionButton = {},
+        floatingActionButton = {}
     ) { contentPadding ->
         SearchScreenContent(
             modifier = Modifier.padding(contentPadding),
@@ -74,7 +62,7 @@ internal fun SearchScreen(
 @Composable
 internal fun Toolbar(
     modifier: Modifier,
-    title: String = "MVI Playground",
+    title: String = "MVI Playground"
 ) {
     CenterAlignedTopAppBar(
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
@@ -103,7 +91,7 @@ internal fun Toolbar(
 internal fun SearchScreenContent(
     modifier: Modifier = Modifier,
     onLocationSelected: (LocationModel) -> Unit,
-    viewModel: SearchViewModel = hiltViewModel(),
+    viewModel: SearchViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -118,29 +106,29 @@ internal fun SearchScreenContent(
 internal fun SearchContent(
     modifier: Modifier = Modifier,
     onLocationSelected: (LocationModel) -> Unit,
-    viewState: SearchViewState,
+    viewState: SearchViewState
 ) {
     when (viewState) {
         is SearchViewState.Initial -> {}
         is SearchViewState.Loading -> CircularProgressBar(
             isLoading = true,
-            modifier = modifier,
+            modifier = modifier
         )
 
         is SearchViewState.Success -> CircularProgressBar(
             isLoading = false,
-            modifier = modifier,
+            modifier = modifier
         )
 
         is SearchViewState.Locations -> SearchListScreen(
             locations = viewState.locations,
             onLocationSelected = onLocationSelected,
-            modifier = modifier,
+            modifier = modifier
         )
 
         is SearchViewState.Error -> ErrorScreen(
             modifier = modifier,
-            message = viewState.message,
+            message = viewState.message
         )
 
         else -> {}
@@ -151,7 +139,7 @@ internal fun SearchContent(
 internal fun SearchListScreen(
     locations: List<LocationModel>,
     onLocationSelected: (LocationModel) -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     LazyColumn(
         modifier = modifier,
@@ -160,7 +148,8 @@ internal fun SearchListScreen(
         locations.forEach { locationModel ->
             val locationId = locationModel.id
             item(key = locationId) {
-                LocationItem(location = locationModel,
+                LocationItem(
+                    location = locationModel,
                     onClick = { selected ->
                         onLocationSelected(selected)
                     }
@@ -174,7 +163,7 @@ internal fun SearchListScreen(
 internal fun LocationItem(
     location: LocationModel,
     onClick: (LocationModel) -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     OutlinedCard(
         colors = CardDefaults.cardColors(
@@ -193,7 +182,7 @@ internal fun LocationItem(
         Row(
             modifier = modifier
                 .padding(horizontal = 5.dp, vertical = 5.dp),
-            verticalAlignment = Alignment.CenterVertically,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
                 modifier = modifier
@@ -225,7 +214,7 @@ internal fun LocationItem(
 @Composable
 internal fun CircularProgressBar(
     isLoading: Boolean,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     if (isLoading) {
         CircularProgressIndicator(
@@ -233,7 +222,7 @@ internal fun CircularProgressBar(
                 .fillMaxSize()
                 .wrapContentSize(),
             color = MaterialTheme.colorScheme.primary,
-            strokeWidth = ProgressIndicatorDefaults.CircularStrokeWidth,
+            strokeWidth = ProgressIndicatorDefaults.CircularStrokeWidth
         )
     }
 }
@@ -241,12 +230,12 @@ internal fun CircularProgressBar(
 @Composable
 internal fun ErrorScreen(
     modifier: Modifier = Modifier,
-    message: String,
+    message: String
 ) {
     Surface(modifier = modifier) {
         Text(
             text = message,
-            color = MaterialTheme.colorScheme.secondary,
+            color = MaterialTheme.colorScheme.secondary
         )
     }
 }
