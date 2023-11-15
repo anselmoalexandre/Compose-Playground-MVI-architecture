@@ -62,7 +62,7 @@ configurations {
 }
 
 dependencies {
-    implementation(project(path = ":domain"))
+    implementation(project(":data"))
     implementation(project(path = ":state-manager"))
 
     implementation(libs.core.ktx)

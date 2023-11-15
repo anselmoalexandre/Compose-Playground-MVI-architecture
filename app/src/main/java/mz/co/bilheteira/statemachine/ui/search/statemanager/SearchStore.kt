@@ -1,7 +1,7 @@
 package mz.co.bilheteira.statemachine.ui.search.statemanager
 
 import javax.inject.Inject
-import mz.co.bilheteira.domain.repository.Repository
+import mz.co.bilheteira.data.repository.Repository
 import mz.co.bilheteira.statemanager.BaseStore
 
 /**
