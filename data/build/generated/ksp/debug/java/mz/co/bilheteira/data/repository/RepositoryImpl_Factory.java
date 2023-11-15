@@ -6,8 +6,8 @@ import dagger.internal.QualifierMetadata;
 import dagger.internal.ScopeMetadata;
 import javax.annotation.processing.Generated;
 import javax.inject.Provider;
-import mz.co.bilheteira.network.data.api.LocationApiService;
 import mz.co.bilheteira.database.dao.LocationDao;
+import mz.co.bilheteira.network.data.api.LocationApiService;
 
 @ScopeMetadata
 @QualifierMetadata

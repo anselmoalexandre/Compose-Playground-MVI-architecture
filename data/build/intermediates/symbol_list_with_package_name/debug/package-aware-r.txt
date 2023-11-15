@@ -1,1 +1,1 @@
-mz.co.bilheteira.domain
+mz.co.bilheteira.data
