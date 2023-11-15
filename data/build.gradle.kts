@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "mz.co.bilheteira.domain"
+    namespace = "mz.co.bilheteira.data"
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()

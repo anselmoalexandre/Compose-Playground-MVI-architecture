@@ -2,7 +2,7 @@ package mz.co.bilheteira.statemachine.ui.search.statemanager
 
 import javax.inject.Inject
 import kotlinx.coroutines.flow.map
-import mz.co.bilheteira.domain.repository.Repository
+import mz.co.bilheteira.data.repository.Repository
 import mz.co.bilheteira.statemanager.Middleware
 import mz.co.bilheteira.statemanager.Store
 

@@ -22,4 +22,8 @@ buildCache {
 }
 
 rootProject.name = "StateMachine"
-include(":app", ":database", ":network", ":domain", ":state-manager")
+include(":app")
+include(":database")
+include(":network")
+include(":data")
+include(":state-manager")

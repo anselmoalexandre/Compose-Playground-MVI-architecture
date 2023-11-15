@@ -1,4 +1,4 @@
-package mz.co.bilheteira.domain.repository
+package mz.co.bilheteira.data.repository
 
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth
@@ -9,7 +9,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import mz.co.bilheteira.domain.data.LocationModel
+import mz.co.bilheteira.data.model.LocationModel
 import mz.co.bilheteira.network.data.api.LocationApiService
 import mz.co.bilheteira.database.dao.LocationDao
 import org.junit.Before

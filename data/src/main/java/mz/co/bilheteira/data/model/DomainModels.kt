@@ -1,7 +1,7 @@
-package mz.co.bilheteira.domain.data
+package mz.co.bilheteira.data.model
 
-import mz.co.bilheteira.network.data.LocationResponse
 import mz.co.bilheteira.database.entity.LocationEntity
+import mz.co.bilheteira.network.data.LocationResponse
 
 data class LocationModel(
     val id: Int,
