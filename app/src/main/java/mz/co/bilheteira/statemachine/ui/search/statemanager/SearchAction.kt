@@ -1,6 +1,6 @@
 package mz.co.bilheteira.statemachine.ui.search.statemanager
 
-import mz.co.bilheteira.domain.data.LocationModel
+import mz.co.bilheteira.data.model.LocationModel
 import mz.co.bilheteira.statemanager.Action
 
 /**

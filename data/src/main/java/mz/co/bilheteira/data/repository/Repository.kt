@@ -1,7 +1,7 @@
-package mz.co.bilheteira.domain.repository
+package mz.co.bilheteira.data.repository
 
 import kotlinx.coroutines.flow.Flow
-import mz.co.bilheteira.domain.data.LocationModel
+import mz.co.bilheteira.data.model.LocationModel
 
 interface Repository {
     fun getLocations(): Flow<List<LocationModel>>

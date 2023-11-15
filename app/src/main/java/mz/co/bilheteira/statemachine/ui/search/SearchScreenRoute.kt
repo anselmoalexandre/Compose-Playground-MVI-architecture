@@ -1,7 +1,6 @@
 package mz.co.bilheteira.statemachine.ui.search
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -35,7 +34,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import mz.co.bilheteira.domain.data.LocationModel
+import mz.co.bilheteira.data.model.LocationModel
 import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchViewState
 
 @Composable

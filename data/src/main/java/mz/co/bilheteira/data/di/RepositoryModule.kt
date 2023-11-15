@@ -1,11 +1,11 @@
-package mz.co.bilheteira.domain.di
+package mz.co.bilheteira.data.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import mz.co.bilheteira.domain.repository.Repository
-import mz.co.bilheteira.domain.repository.RepositoryImpl
+import mz.co.bilheteira.data.repository.Repository
+import mz.co.bilheteira.data.repository.RepositoryImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
