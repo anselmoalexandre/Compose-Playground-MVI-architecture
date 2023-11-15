@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "mz.co.bilheteira.domain-merged_res-17:/layout-v21/notification_template_custom_big.xml",
+        "source": "mz.co.bilheteira.domain-core-1.8.0-13:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "mz.co.bilheteira.domain-merged_res-17:/layout-v21/notification_action_tombstone.xml",
+        "source": "mz.co.bilheteira.domain-core-1.8.0-13:/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "mz.co.bilheteira.domain-merged_res-17:/layout-v21/notification_action.xml",
+        "source": "mz.co.bilheteira.domain-core-1.8.0-13:/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "mz.co.bilheteira.domain-merged_res-17:/layout-v21/notification_template_icon_group.xml",
+        "source": "mz.co.bilheteira.domain-core-1.8.0-13:/layout-v21/notification_template_icon_group.xml"
+    }
+]

@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import mz.co.bilheteira.domain.data.LocationModel
 import mz.co.bilheteira.network.data.api.LocationApiService
-import mz.co.bilheteira.storage.dao.LocationDao
+import mz.co.bilheteira.database.dao.LocationDao
 import org.junit.Before
 import org.junit.Test
 

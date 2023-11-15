@@ -10,7 +10,7 @@ import mz.co.bilheteira.domain.data.LocationModel
 import mz.co.bilheteira.domain.data.toLocationEntity
 import mz.co.bilheteira.domain.data.toLocationModel
 import mz.co.bilheteira.network.data.api.LocationApiService
-import mz.co.bilheteira.storage.dao.LocationDao
+import mz.co.bilheteira.database.dao.LocationDao
 
 internal class RepositoryImpl @Inject constructor(
     private val locationDao: LocationDao,
