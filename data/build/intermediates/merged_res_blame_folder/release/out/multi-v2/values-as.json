@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "mz.co.bilheteira.domain-mergeReleaseResources-15:/values-as/values-as.xml",
+            "outputFile": "mz.co.bilheteira.data-merged_res-17:/values-as/values-as.xml",
             "map": [
                 {
-                    "source": "/Users/anselmoalexandre/.gradle/caches/transforms-3/ec9fc7eb7d1c5f110f3fa66b66d5f2c2/transformed/core-1.8.0/res/values-as/values-as.xml",
+                    "source": "/Users/anselmoalexandre/.gradle/caches/transforms-3/84728f540c8c7df7a2a55efa1951b812/transformed/core-1.8.0/res/values-as/values-as.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "mz.co.bilheteira.domain-merged_res-17:/values-as/values-as.xml",
+            "outputFile": "mz.co.bilheteira.data-mergeReleaseResources-15:/values-as/values-as.xml",
             "map": [
                 {
-                    "source": "/Users/anselmoalexandre/.gradle/caches/transforms-3/ec9fc7eb7d1c5f110f3fa66b66d5f2c2/transformed/core-1.8.0/res/values-as/values-as.xml",
+                    "source": "/Users/anselmoalexandre/.gradle/caches/transforms-3/84728f540c8c7df7a2a55efa1951b812/transformed/core-1.8.0/res/values-as/values-as.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

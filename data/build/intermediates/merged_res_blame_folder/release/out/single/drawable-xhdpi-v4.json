@@ -1,22 +1,22 @@
 [
     {
-        "merged": "mz.co.bilheteira.domain-merged_res-17:/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png",
-        "source": "mz.co.bilheteira.domain-core-1.8.0-13:/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+        "merged": "mz.co.bilheteira.data-merged_res-17:/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png",
+        "source": "mz.co.bilheteira.data-core-1.8.0-8:/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
-        "merged": "mz.co.bilheteira.domain-merged_res-17:/drawable-xhdpi-v4/notification_bg_low_pressed.9.png",
-        "source": "mz.co.bilheteira.domain-core-1.8.0-13:/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+        "merged": "mz.co.bilheteira.data-merged_res-17:/drawable-xhdpi-v4/notification_bg_low_pressed.9.png",
+        "source": "mz.co.bilheteira.data-core-1.8.0-8:/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
-        "merged": "mz.co.bilheteira.domain-merged_res-17:/drawable-xhdpi-v4/notification_bg_normal.9.png",
-        "source": "mz.co.bilheteira.domain-core-1.8.0-13:/drawable-xhdpi-v4/notification_bg_normal.9.png"
+        "merged": "mz.co.bilheteira.data-merged_res-17:/drawable-xhdpi-v4/notification_bg_low_normal.9.png",
+        "source": "mz.co.bilheteira.data-core-1.8.0-8:/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
     },
     {
-        "merged": "mz.co.bilheteira.domain-merged_res-17:/drawable-xhdpi-v4/notification_bg_low_normal.9.png",
-        "source": "mz.co.bilheteira.domain-core-1.8.0-13:/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+        "merged": "mz.co.bilheteira.data-merged_res-17:/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png",
+        "source": "mz.co.bilheteira.data-core-1.8.0-8:/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
-        "merged": "mz.co.bilheteira.domain-merged_res-17:/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png",
-        "source": "mz.co.bilheteira.domain-core-1.8.0-13:/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+        "merged": "mz.co.bilheteira.data-merged_res-17:/drawable-xhdpi-v4/notification_bg_normal.9.png",
+        "source": "mz.co.bilheteira.data-core-1.8.0-8:/drawable-xhdpi-v4/notification_bg_normal.9.png"
     }
 ]
