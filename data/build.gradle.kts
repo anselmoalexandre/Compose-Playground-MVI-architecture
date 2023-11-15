@@ -26,7 +26,7 @@ android {
 
 dependencies {
     implementation(project(path = ":network"))
-    implementation(project(path = ":storage"))
+    implementation(project(":database"))
 
     implementation(libs.hilt)
     ksp(libs.hilt.compiler)

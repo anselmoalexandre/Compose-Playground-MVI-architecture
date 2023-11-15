@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.map
 import mz.co.bilheteira.data.model.LocationModel
 import mz.co.bilheteira.data.model.toLocationEntity
 import mz.co.bilheteira.data.model.toLocationModel
+import mz.co.bilheteira.database.dao.LocationDao
 import mz.co.bilheteira.network.data.api.LocationApiService
-import mz.co.bilheteira.storage.dao.LocationDao
 
 internal class RepositoryImpl @Inject constructor(
     private val locationDao: LocationDao,

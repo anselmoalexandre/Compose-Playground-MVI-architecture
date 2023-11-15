@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "mz.co.bilheteira.domain-merged_res-17:/animator/fragment_open_exit.xml",
+        "source": "mz.co.bilheteira.domain-fragment-1.5.1-4:/animator/fragment_open_exit.xml"
+    },
+    {
+        "merged": "mz.co.bilheteira.domain-merged_res-17:/animator/fragment_fade_enter.xml",
+        "source": "mz.co.bilheteira.domain-fragment-1.5.1-4:/animator/fragment_fade_enter.xml"
+    },
+    {
+        "merged": "mz.co.bilheteira.domain-merged_res-17:/animator/fragment_close_exit.xml",
+        "source": "mz.co.bilheteira.domain-fragment-1.5.1-4:/animator/fragment_close_exit.xml"
+    },
+    {
+        "merged": "mz.co.bilheteira.domain-merged_res-17:/animator/fragment_close_enter.xml",
+        "source": "mz.co.bilheteira.domain-fragment-1.5.1-4:/animator/fragment_close_enter.xml"
+    },
+    {
+        "merged": "mz.co.bilheteira.domain-merged_res-17:/animator/fragment_fade_exit.xml",
+        "source": "mz.co.bilheteira.domain-fragment-1.5.1-4:/animator/fragment_fade_exit.xml"
+    },
+    {
+        "merged": "mz.co.bilheteira.domain-merged_res-17:/animator/fragment_open_enter.xml",
+        "source": "mz.co.bilheteira.domain-fragment-1.5.1-4:/animator/fragment_open_enter.xml"
+    }
+]
