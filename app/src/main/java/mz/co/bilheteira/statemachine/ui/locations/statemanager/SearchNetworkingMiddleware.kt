@@ -1,10 +1,12 @@
 package mz.co.bilheteira.statemachine.ui.locations.statemanager
 
-import javax.inject.Inject
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import mz.co.bilheteira.data.repository.Repository
+import mz.co.bilheteira.statemachine.ui.locations.SearchViewModel.SearchAction
+import mz.co.bilheteira.statemachine.ui.locations.SearchViewModel.SearchViewState
 import mz.co.bilheteira.statemanager.Middleware
 import mz.co.bilheteira.statemanager.Store
+import javax.inject.Inject
 
 /**
  * This is a custom [Middleware] that processes any [SearchAction]s and triggers a
@@ -20,10 +22,6 @@ internal class SearchNetworkingMiddleware @Inject constructor(
     ) {
         when (action) {
             is SearchAction.FetchLocations -> fetchRemoteStoredLocations(store)
-            is SearchAction.FetchLocationDetails -> fetchLocationDetails(
-                locationId = action.locationId,
-                store = store
-            )
 
             else -> {}
         }
@@ -31,26 +29,12 @@ internal class SearchNetworkingMiddleware @Inject constructor(
 
     private suspend fun fetchRemoteStoredLocations(store: Store<SearchViewState, SearchAction>) {
         store.dispatch(SearchAction.FetchingLocations)
-        repository.getLocations().collect { locations ->
-            store.dispatch(SearchAction.FetchingLocationsDone)
-            store.dispatch(SearchAction.LocationsLoaded(locations = locations))
-        }
-    }
-
-    private suspend fun fetchLocationDetails(
-        locationId: Int,
-        store: Store<SearchViewState, SearchAction>
-    ) {
-        store.dispatch(SearchAction.FetchingLocationDetails)
         repository.getLocations()
-            .map { locations ->
-                locations.filter { locationModel ->
-                    locationModel.id == locationId
-                }
+            .onStart {
+                store.dispatch(SearchAction.FetchingLocationsDone)
             }
-            .collect { location ->
-                store.dispatch(SearchAction.FetchingLocationDetailsDone)
-                store.dispatch(SearchAction.LocationDetails(details = location.first()))
+            .collect { locations ->
+                store.dispatch(SearchAction.LocationsLoaded(locations = locations))
             }
     }
 }

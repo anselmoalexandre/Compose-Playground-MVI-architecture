@@ -1,6 +1,8 @@
 package mz.co.bilheteira.statemachine.ui.locations.statemanager
 
 import mz.co.bilheteira.data.model.LocationModel
+import mz.co.bilheteira.statemachine.ui.locations.SearchViewModel.SearchAction
+import mz.co.bilheteira.statemachine.ui.locations.SearchViewModel.SearchViewState
 import mz.co.bilheteira.statemanager.Reducer
 
 /**
@@ -12,15 +14,14 @@ internal class SearchReducer : Reducer<SearchViewState, SearchAction> {
         return when (action) {
             is SearchAction.FetchingLocations -> newStateLoading()
             is SearchAction.FetchingLocationsDone -> newStateSuccess()
-            is SearchAction.FetchingLocationDetailsDone -> newStateSuccess()
-            is SearchAction.FetchLocationDetails -> newStateLoading()
-            is SearchAction.Error -> newStateWithError(message = action.message)
+            is SearchAction.Error -> newStateWithError(
+                message = action.message
+            )
+
             is SearchAction.LocationsLoaded -> newStateWithLocationContent(
                 locations = action.locations
             )
-            is SearchAction.LocationDetails -> newStateWithLocationDetailsContent(
-                details = action.details
-            )
+
             else -> currentState
         }
     }
@@ -36,8 +37,4 @@ internal class SearchReducer : Reducer<SearchViewState, SearchAction> {
     private fun newStateWithLocationContent(
         locations: List<LocationModel>
     ): SearchViewState = SearchViewState.Locations(locations)
-
-    private fun newStateWithLocationDetailsContent(details: LocationModel): SearchViewState {
-        return SearchViewState.LocationDetails(details = details)
-    }
 }
