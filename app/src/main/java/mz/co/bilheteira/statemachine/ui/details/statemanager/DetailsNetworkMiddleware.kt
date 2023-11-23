@@ -1,6 +1,7 @@
 package mz.co.bilheteira.statemachine.ui.details.statemanager
 
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import mz.co.bilheteira.data.repository.Repository
 import mz.co.bilheteira.statemachine.ui.details.LocationDetailsViewModel.DetailsActions
 import mz.co.bilheteira.statemachine.ui.details.LocationDetailsViewModel.DetailsViewState
@@ -20,11 +21,12 @@ internal class DetailsNetworkMiddleware @Inject constructor(
         currentState: DetailsViewState,
         store: Store<DetailsViewState, DetailsActions>
     ) {
-        when(action){
+        when (action) {
             is DetailsActions.FetchLocationDetails -> fetchLocationDetails(
                 locationId = action.locationId,
                 store = store
             )
+
             else -> {}
         }
     }
@@ -40,8 +42,10 @@ internal class DetailsNetworkMiddleware @Inject constructor(
                     locationModel.id == locationId
                 }
             }
-            .collect { location ->
+            .onStart {
                 store.dispatch(DetailsActions.FetchingLocationDetailsDone)
+            }
+            .collect { location ->
                 store.dispatch(DetailsActions.LocationDetails(details = location.first()))
             }
     }

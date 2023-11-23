@@ -7,9 +7,11 @@ import mz.co.bilheteira.statemanager.BaseStore
 import javax.inject.Inject
 
 internal class DetailsStore @Inject constructor(
-    private val repository: Repository,
-) : BaseStore<DetailsViewState, DetailsActions> (
+    repository: Repository,
+) : BaseStore<DetailsViewState, DetailsActions>(
     initialState = DetailsViewState.Initial,
     reducer = DetailsReducer(),
-    middlewares = emptyList(),
+    middlewares = listOf(
+        DetailsNetworkMiddleware(repository = repository)
+    ),
 )
