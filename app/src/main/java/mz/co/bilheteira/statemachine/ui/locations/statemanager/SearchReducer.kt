@@ -1,4 +1,4 @@
-package mz.co.bilheteira.statemachine.ui.search.statemanager
+package mz.co.bilheteira.statemachine.ui.locations.statemanager
 
 import mz.co.bilheteira.data.model.LocationModel
 import mz.co.bilheteira.statemanager.Reducer

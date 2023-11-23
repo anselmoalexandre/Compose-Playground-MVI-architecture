@@ -1,4 +1,4 @@
-package mz.co.bilheteira.statemachine.ui.search
+package mz.co.bilheteira.statemachine.ui.locations
 
 import androidx.test.filters.SmallTest
 import kotlinx.coroutines.test.runTest

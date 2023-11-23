@@ -4,9 +4,9 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchAction
-import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchNetworkingMiddleware
-import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchViewState
+import mz.co.bilheteira.statemachine.ui.locations.statemanager.SearchAction
+import mz.co.bilheteira.statemachine.ui.locations.statemanager.SearchNetworkingMiddleware
+import mz.co.bilheteira.statemachine.ui.locations.statemanager.SearchViewState
 import mz.co.bilheteira.statemanager.Middleware
 
 @Module

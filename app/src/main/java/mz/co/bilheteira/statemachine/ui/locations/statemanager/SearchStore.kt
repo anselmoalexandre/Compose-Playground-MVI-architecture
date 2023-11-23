@@ -1,4 +1,4 @@
-package mz.co.bilheteira.statemachine.ui.search.statemanager
+package mz.co.bilheteira.statemachine.ui.locations.statemanager
 
 import javax.inject.Inject
 import mz.co.bilheteira.data.repository.Repository

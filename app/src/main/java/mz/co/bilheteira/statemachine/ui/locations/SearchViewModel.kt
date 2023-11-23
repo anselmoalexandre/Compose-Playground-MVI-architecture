@@ -1,4 +1,4 @@
-package mz.co.bilheteira.statemachine.ui.search
+package mz.co.bilheteira.statemachine.ui.locations
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,9 +6,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchAction
-import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchStore
-import mz.co.bilheteira.statemachine.ui.search.statemanager.SearchViewState
+import mz.co.bilheteira.statemachine.ui.locations.statemanager.SearchAction
+import mz.co.bilheteira.statemachine.ui.locations.statemanager.SearchStore
+import mz.co.bilheteira.statemachine.ui.locations.statemanager.SearchViewState
 
 @HiltViewModel
 internal class SearchViewModel @Inject constructor(
