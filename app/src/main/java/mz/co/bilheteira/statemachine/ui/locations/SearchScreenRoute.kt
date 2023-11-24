@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import mz.co.bilheteira.data.model.LocationModel
+import mz.co.bilheteira.statemachine.ui.locations.SearchViewModel.SearchViewState
 
 @Composable
 internal fun SearchScreen(
