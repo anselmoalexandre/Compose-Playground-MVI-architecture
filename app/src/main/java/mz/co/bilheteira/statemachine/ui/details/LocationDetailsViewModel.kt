@@ -2,15 +2,15 @@ package mz.co.bilheteira.statemachine.ui.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import javax.inject.Inject
 import kotlinx.coroutines.launch
 import mz.co.bilheteira.data.model.LocationModel
 import mz.co.bilheteira.statemachine.ui.details.statemanager.DetailsStore
 import mz.co.bilheteira.statemanager.Action
 import mz.co.bilheteira.statemanager.State
-import javax.inject.Inject
 
 internal class LocationDetailsViewModel @Inject constructor(
-    private val store: DetailsStore,
+    private val store: DetailsStore
 ) : ViewModel() {
 
     fun fetchLocationDetails(locationId: Int) {

@@ -1,12 +1,12 @@
 package mz.co.bilheteira.statemachine.ui.locations.statemanager
 
+import javax.inject.Inject
 import kotlinx.coroutines.flow.onStart
 import mz.co.bilheteira.data.repository.Repository
 import mz.co.bilheteira.statemachine.ui.locations.SearchViewModel.SearchAction
 import mz.co.bilheteira.statemachine.ui.locations.SearchViewModel.SearchViewState
 import mz.co.bilheteira.statemanager.Middleware
 import mz.co.bilheteira.statemanager.Store
-import javax.inject.Inject
 
 /**
  * This is a custom [Middleware] that processes any [SearchAction]s and triggers a

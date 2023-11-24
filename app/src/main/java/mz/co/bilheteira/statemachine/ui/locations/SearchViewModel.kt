@@ -3,13 +3,13 @@ package mz.co.bilheteira.statemachine.ui.locations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import mz.co.bilheteira.data.model.LocationModel
 import mz.co.bilheteira.statemachine.ui.locations.statemanager.SearchStore
 import mz.co.bilheteira.statemanager.Action
 import mz.co.bilheteira.statemanager.State
-import javax.inject.Inject
 
 @HiltViewModel
 internal class SearchViewModel @Inject constructor(

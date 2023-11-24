@@ -1,5 +1,6 @@
 package mz.co.bilheteira.statemachine.ui.details.statemanager
 
+import javax.inject.Inject
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import mz.co.bilheteira.data.repository.Repository
@@ -7,14 +8,13 @@ import mz.co.bilheteira.statemachine.ui.details.LocationDetailsViewModel.Details
 import mz.co.bilheteira.statemachine.ui.details.LocationDetailsViewModel.DetailsViewState
 import mz.co.bilheteira.statemanager.Middleware
 import mz.co.bilheteira.statemanager.Store
-import javax.inject.Inject
 
 /**
  * This is a custom [Middleware] that processes any [DetailsActions]s and triggers a
  * corresponding data request to our [repository] if necessary.
  */
 internal class DetailsNetworkMiddleware @Inject constructor(
-    private val repository: Repository,
+    private val repository: Repository
 ) : Middleware<DetailsViewState, DetailsActions> {
     override suspend fun process(
         action: DetailsActions,
